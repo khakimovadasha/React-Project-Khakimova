@@ -1,35 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Table, Tag, Space, Image } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface PlantType {
+  key: string;
+  name: string;
+  category: string;
+  price: number;
+  inStock: boolean;
+  photo: string; 
 }
 
-export default App
+const columns: ColumnsType<PlantType> = [
+  {
+    title: 'Фото',
+    dataIndex: 'photo',
+    key: 'photo',
+    render: (photo) => <Image width={50} height={50} src={photo} />,
+  },
+  {
+    title: 'Название',
+    dataIndex: 'name',
+    key: 'name',
+    render: (text) => <a>{text}</a>,
+  },
+  {
+    title: 'Категория',
+    dataIndex: 'category',
+    key: 'category',
+  },
+  {
+    title: 'Цена',
+    dataIndex: 'price',
+    key: 'price',
+    render: (price) => <span>{price}руб</span>,
+  },
+  {
+    title: 'Наличие',
+    dataIndex: 'inStock',
+    key: 'inStock',
+    render: (inStock) => (
+      <Tag color={inStock ? 'green' : 'volcano'}>
+        {inStock ? 'In Stock' : 'Out of Stock'}
+      </Tag>
+    ),
+  },
+  {
+    title: 'Действие',
+    key: 'action',
+    render: (_, record) => (
+      <Space size="middle">
+        <a>В корзину</a>
+        <a>Подробнее</a>
+      </Space>
+    ),
+  },
+];
+
+const plantData: PlantType[] = [
+  {
+    key: '1',
+    name: 'Фикус',
+    category: 'Комнатные',
+    price: 2100,
+    inStock: true,
+    photo:  '../ficus.jpg', 
+  },
+  {
+    key: '2',
+    name: 'Стрелиция',
+    category: 'Комнатные',
+    price: 9500,
+    inStock: true,
+    photo: '../strelicia.jpg',
+  },
+  {
+    key: '3',
+    name: 'Монстера',
+    category: 'Комнатные',
+    price: 2500,
+    inStock: false,
+    photo: '../monstera.png',
+  },
+];
+
+const FlowerShopTable: React.FC = () => (
+  <Table columns={columns} dataSource={plantData} />
+);
+
+export default FlowerShopTable;
