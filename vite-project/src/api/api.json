@@ -1,0 +1,51 @@
+
+[
+  {
+    "key": "1",
+    "name": "Фикус",
+    "category": "Комнатные",
+    "price": 2100,
+    "inStock": true,
+    "photo": "../ficus.jpg"
+  },
+  {
+    "key": "2",
+    "name": "Стрелиция",
+    "category": "Комнатные",
+    "price": 9500,
+    "inStock": true,
+    "photo": "../strelicia.jpg"
+  },
+  {
+    "key": "3",
+    "name": "Монстера",
+    "category": "Комнатные",
+    "price": 2500,
+    "inStock": false,
+    "photo": "../monstera.png"
+  },
+  {
+    "key": "4",
+    "name": "Фикус",
+    "category": "Комнатные",
+    "price": 2100,
+    "inStock": true,
+    "photo": "../ficus.jpg"
+  },
+  {
+    "key": "5",
+    "name": "Стрелиция",
+    "category": "Комнатные",
+    "price": 9500,
+    "inStock": true,
+    "photo": "../strelicia.jpg"
+  },
+  {
+    "key": "6",
+    "name": "Монстера",
+    "category": "Комнатные",
+    "price": 2500,
+    "inStock": false,
+    "photo": "../monstera.png"
+  }
+]
