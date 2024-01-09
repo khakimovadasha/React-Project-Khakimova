@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Tag, Space, Image, Button } from 'antd';
-import { SubmitHandler, useForm } from "react-hook-form";
 import plantData from '../../api/api.json';
 
 
@@ -58,7 +57,7 @@ const columns = [
   {
     title: 'Действие',
     key: 'action',
-    render: (_, record: string) => (
+    render: (record: string) => (
       <Space size="middle">
         <a>В корзину</a>
         <a>Подробнее</a>
@@ -66,13 +65,6 @@ const columns = [
     ),
   },
 ];
-
-
-interface IMyForm {
-  name: string;
-  age: number;
-}
-
 
 
 
@@ -102,31 +94,9 @@ function Catalog() {
 
 
 
-
-  const {
-    register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
-    handleSubmit, // метод для получения данных формы, если валидация прошла успешна
-    formState: {errors,isValid}, // errors - список ошибок валидации для всех полей формы
-    reset // метод для очистки полей формы
-} = useForm<IMyForm>({
-    mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
-})
-
-  const saveElement: SubmitHandler<IMyForm> = data => {
-    // здесь мы передаём новый массив, который содержит все старые элементы и новый
-    // ...prev - мы получаем все элементы текущего стэйте (с помощью spread оператора)
-        setTasks((prev) => [...prev, data])
-        reset();
-    }
-
-
-  const [tasks, setTasks] = useState<IMyForm[]>([])
-
-
-
-
   return (
     <>
+      <h1>Каталог</h1>
       <Table columns={columns} dataSource={displayedData} pagination={false} />
 
 
@@ -137,42 +107,6 @@ function Catalog() {
       <Button onClick={handleNextPage} disabled={currentPage === totalPages}>
         Вперёд
       </Button>
-
-
-
-
-  <form onSubmit={handleSubmit(saveElement)}>
-    <input
-        {...register('name', {
-                required: "Поле обязательно для заполнения",
-                minLength: {
-                    value: 5,
-                    message: "Нужно больше символов"
-                }
-            }
-      )}
-    />
-    <div>{errors.name?.message}</div>
-    <input
-        {...register('age', {
-                required: "Поле обязательно для заполнения",
-                minLength: {
-                    value: 10,
-                    message: "Нужно больше символов"
-                }
-            }
-        )}
-    />
-    <div>{errors.age?.message}</div>
-    <button type="submit" disabled={!isValid} >Сохранить</button>
-  </form>
-  {
-    tasks.map((task) =>
-        <p>
-            {task.name} - {task.age}
-        </p>
-    )
-}
     </>
   );
 }
