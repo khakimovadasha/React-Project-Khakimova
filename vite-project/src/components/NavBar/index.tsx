@@ -1,29 +1,67 @@
-import React, { useState } from 'react'; 
-import { Link } from 'react-router-dom'; 
-import { HOME, CATALOG, ABOUT, CONTACTS, REVIEWS } from '../../app/routing/config'; 
+import React, { useState, createContext } from "react";
+import { Link } from "react-router-dom";
+import {
+  HOME,
+  CATALOG,
+  ABOUT,
+  CONTACTS,
+  REVIEWS,
+} from "../../app/routing/config";
 
-const Navbar = () => { 
-  const [loginButtonText, setButtonText] = useState<string>('Войти'); 
+interface AuthContextType {
+  loginButtonText: string;
+  toggleLogin: () => void;
+}
 
-  const toggleLogin = () => { 
-    setButtonText((prevState) => (prevState === 'Войти' ? 'Выйти' : 'Войти')); 
-  }; 
+const defaultValue: AuthContextType = {
+  loginButtonText: '',
+  toggleLogin: () => {},
+};
 
-  return ( 
-    <> 
-      <div className='route'> 
-        <Link to={HOME}>Главная</Link> 
-        <Link to={CATALOG}>Каталог</Link> 
-        <Link to={ABOUT}>О нас</Link> 
-        <Link to={CONTACTS}>Контакты</Link> 
-        <Link to={REVIEWS}>Отзывы</Link> 
+const AuthContext = createContext<AuthContextType>(defaultValue);
 
-        <button onClick={toggleLogin}> 
-          {loginButtonText} 
-        </button> 
-      </div> 
-    </> 
-  ); 
-}; 
+const Navbar: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const loginButtonText = isAuthenticated ? "Выйти" : "Войти";
+
+  const toggleLogin = () => {
+    setIsAuthenticated((prevState) => !prevState);
+  };
+  return(
+    <div>
+        <div>
+          <Link to={ABOUT} className="routeLink">
+            О нас
+          </Link>
+          <Link to={HOME} className="routeLink">
+            Главная
+          </Link>
+          <Link to={CATALOG} className="routeLink">
+            Каталог
+          </Link>
+          
+          {!isAuthenticated && (
+            <Link to={CONTACTS} className="routeLink">
+              WomenForm
+            </Link>
+          )}
+          {isAuthenticated && (
+            <Link to={REVIEWS} className="routeLink">
+              Отзывы
+            </Link>
+          )}
+        </div>
+        <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
+          <div>
+            <button
+              onClick={toggleLogin}
+            >
+              {loginButtonText}
+            </button>
+          </div>
+        </AuthContext.Provider>
+        </div>
+  );
+};
 
 export default Navbar;
