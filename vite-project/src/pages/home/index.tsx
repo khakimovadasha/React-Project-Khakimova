@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react'; 
- 
+
 const Home = () => { 
   useEffect(() => { 
     const audio = new Audio('../public/chipi.mp3'); 
- 
+
     const handleEnded = () => { 
       audio.currentTime = 0; 
       audio.play(); 
     }; 
- 
+
     audio.addEventListener('ended', handleEnded); 
- 
+
     audio.play(); 
- 
+
     return () => { 
       audio.removeEventListener('ended', handleEnded); 
     }; 
   }, []); 
- 
+
   return ( 
     <> 
       <div>Это главная</div> 
@@ -25,5 +25,5 @@ const Home = () => {
     </> 
   ); 
 }; 
- 
+
 export default Home;

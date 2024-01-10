@@ -30,24 +30,23 @@ const Navbar: React.FC = () => {
   return(
     <div>
         <div>
-          <Link to={ABOUT} className="routeLink">
-            О нас
-          </Link>
           <Link to={HOME} className="routeLink">
             Главная
           </Link>
           <Link to={CATALOG} className="routeLink">
             Каталог
           </Link>
-          
-          {!isAuthenticated && (
-            <Link to={CONTACTS} className="routeLink">
-              WomenForm
-            </Link>
-          )}
+          <Link to={ABOUT} className="routeLink">
+            О нас
+          </Link>
           {isAuthenticated && (
             <Link to={REVIEWS} className="routeLink">
               Отзывы
+            </Link>
+          )}
+          {!isAuthenticated && (
+            <Link to={CONTACTS} className="routeLink">
+              Контакты
             </Link>
           )}
         </div>
