@@ -36,60 +36,60 @@ const Contacts = () => {
 
   return (
     <div>
+      <h1>Контакты</h1>
       <p>Остались вопросы ?</p>
-<p>Связаться с нами</p>
-<form onSubmit={handleSubmit(saveElement)}>
-<div>
-    <label htmlFor="name">Имя</label>
-    <input
-      type="text"
-      id="name"
-      {...register('name', {
-        required: "Поле обязательно для заполнения",
-        minLength: {
-          value: 2,
-          message: "Нужно больше символов"
-        }
-      })}
-      placeholder="Введите ваше имя"
-    />
-    <div>{errors.name?.message}</div>
-  </div>
-  <div>
-    <label htmlFor="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      {...register('email', {
-        required: "Поле обязательно для заполнения",
-        minLength: {
-          value: 5,
-          message: "Нужно больше символов"
-        }
-      })}
-      placeholder="Введите ваш email"
-    />
-    <div>{errors.email?.message}</div>
-  </div>
-  <div>
-    <label htmlFor="text">Ваше сообщение</label>
-    <input
-      type="text"
-      id="text"
-      {...register('text', {
-        required: "Поле обязательно для заполнения",
-        minLength: {
-          value: 5,
-          message: "Нужно больше символов"
-        }
-      })}
-      placeholder="Введите текст"
-    />
-    <div>{errors.text?.message}</div>
-  </div>
-  <button type="submit" disabled={!isValid}>Отправить</button>
-</form>
-
+      <p>Связаться с нами</p>
+      <form onSubmit={handleSubmit(saveElement)}>
+      <div>
+          <label htmlFor="name">Имя</label>
+          <input
+            type="text"
+            id="name"
+            {...register('name', {
+              required: "Поле обязательно для заполнения",
+              minLength: {
+                value: 2,
+                message: "Нужно больше символов"
+              }
+            })}
+            placeholder="Введите ваше имя"
+          />
+          <div>{errors.name?.message}</div>
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            {...register('email', {
+              required: "Поле обязательно для заполнения",
+              minLength: {
+                value: 5,
+                message: "Нужно больше символов"
+              }
+            })}
+            placeholder="Введите ваш email"
+          />
+          <div>{errors.email?.message}</div>
+        </div>
+        <div>
+          <label htmlFor="text">Ваше сообщение</label>
+          <input
+            type="text"
+            id="text"
+            {...register('text', {
+              required: "Поле обязательно для заполнения",
+              minLength: {
+                value: 5,
+                message: "Нужно больше символов"
+              }
+            })}
+            placeholder="Введите текст"
+          />
+          <div>{errors.text?.message}</div>
+        </div>
+        <button type="submit" disabled={!isValid}>Отправить</button>
+      </form>
     <div>
 
       </div>

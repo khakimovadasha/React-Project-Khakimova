@@ -17,7 +17,7 @@ interface PlantType {
 }
 
 
-const itemsPerPage = 10;
+const itemsPerPage = 8;
 
 
 const columns = [
@@ -25,7 +25,7 @@ const columns = [
     title: 'Фото',
     dataIndex: 'photo',
     key: 'photo',
-    render: (photo: string) => <Image width={50} height={50} src={photo} />,
+    render: (photo: string) => <Image width={90} height={90} src={photo} />,
   },
   {
     title: 'Название',
