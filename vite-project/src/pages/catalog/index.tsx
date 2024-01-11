@@ -17,7 +17,7 @@ interface PlantType {
 }
 
 
-const itemsPerPage = 10;
+const itemsPerPage = 8;
 
 
 const columns = [
@@ -25,7 +25,7 @@ const columns = [
     title: 'Фото',
     dataIndex: 'photo',
     key: 'photo',
-    render: (photo: string) => <Image width={50} height={50} src={photo} />,
+    render: (photo: string) => <Image width={90} height={90} src={photo} />,
   },
   {
     title: 'Название',
@@ -95,19 +95,19 @@ function Catalog() {
 
 
   return (
-    <>
+    <div style={{ margin: '0 50px' }}>
       <h1>Каталог</h1>
       <Table columns={columns} dataSource={displayedData} pagination={false} />
 
 
-      <Button onClick={handlePrevPage} disabled={currentPage === 1}>
+      <Button  style={{ margin: '30px 0px 40px 50px' }} onClick={handlePrevPage} disabled={currentPage === 1}>
         Назад
       </Button>
-      <span style={{ margin: '0 10px' }}>Страница: {currentPage}</span>
+      <span style={{ margin: '0 20px' }}>Страница: {currentPage}</span>
       <Button onClick={handleNextPage} disabled={currentPage === totalPages}>
         Вперёд
       </Button>
-    </>
+    </div>
   );
 }
 
