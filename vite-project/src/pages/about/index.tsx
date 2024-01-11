@@ -16,7 +16,7 @@ const AboutText = styled.p`
 const AboutTextTwo = styled.p`
   margin-bottom: 20px;
   width: 800px;
-  color: var(--btn-color);
+  color: black;
 `;
 
 const WrapCont = styled.div`

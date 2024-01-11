@@ -18,9 +18,17 @@ const GlobalStyle = createGlobalStyle`
     --white-color: #ffffff;
     --btn-color: #272727;
 	}
-
+  
   body {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--theme);
+  }
+  
+  html[data-theme=light] {
+			--theme: white;
+  }
+  html[data-theme=dark] {
+			--theme: #0f0f0f;
   }
 
   .routeLink {

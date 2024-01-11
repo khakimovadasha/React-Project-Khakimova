@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ReviewContainer = styled.div`
+interface StyledProps {
+  containerHeight?: string;
+}
+
+const ReviewContainer = styled.div<StyledProps>`
   margin: 20px 250px;
   padding: 20px;
   border: 1px solid #000000;
   background-color: #cddacd;
-  border-radius: 30px ;
+  border-radius: 30px;
+  height: ${({ containerHeight }) => (containerHeight ? containerHeight : 'auto')};
 `;
 
 const Rating = styled.div`
@@ -70,7 +75,7 @@ const Reviews = () => {
     <div>
       <h1>Отзывы</h1>
       {dummyReviews.map((review, index) => (
-        <ReviewContainer key={index}>
+        <ReviewContainer key={index} containerHeight="180px"> 
           <Rating>
             {Array.from({ length: review.rating }, (_, i) => (
               <span key={i}>★</span>
