@@ -22,22 +22,26 @@ export const InfoWrap = styled.div`
   font-size: 10px;
   text-decoration: underline;
 `;
+
 export const WrapLinks  = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 14px;
 `;
+
 export const WrapShop = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
 export const WrapNav  = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
   text-decoration: underline;
 `;
+
 export const WrNv  = styled.div`
   display: flex;
   justify-content: space-between;
@@ -77,7 +81,7 @@ const Footer: React.FC = () => {
           <p>Магазин  цветов для дома</p>
         </WrapShop>
         <div>
-        <a className="address-link" href="https://www.google.com/maps?q=Москва,+ул.+Ладожская,+д5,+М.Бауманская" target="_blank" rel="noopener noreferrer">
+        <a className="address-link" href="https://www.google.com/maps?q=Москва,+ул.+Ладожская,+д5" target="_blank" rel="noopener noreferrer">
           Адрес: Москва, ул.Ладожская, д5. М.Бауманская
         </a>
           <p style={{ display: 'flex', justifyContent: 'flex-end'}}>Магазин открыт ежедневно с 10:00 до 21:00</p>

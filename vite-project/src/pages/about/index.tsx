@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AboutContainer = styled.div`
-  margin: 0 auto;
+  margin: 0 auto 70px;
   font-size: 16px;
   line-height: 1.5;
 `;
@@ -38,17 +38,18 @@ const AboutImage = styled.img`
   width: 300px;
   height: 300px;
   object-fit: cover;
+  padding: 15px;
 `;
 
 const AboutMissionHeader = styled.h2`
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 10px;
 `;
 
 const AboutAdvantagesHeader = styled.h2`
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 10px;
 `;
 
