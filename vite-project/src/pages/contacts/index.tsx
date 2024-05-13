@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import styled from 'styled-components';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -7,6 +8,16 @@ interface IMyForm {
   name: string;
   age: number;
 }
+=======
+
+import styled from 'styled-components';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import MyDocument from '../../components/MyDocument';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { IData , IMyForm} from './types';
+
+>>>>>>> c456f1e2 (added 1+2labs)
 
 const FonForm = styled.div`
   background-image: url('../public/background.png');
@@ -121,6 +132,7 @@ const ContactInfo = styled.div`
 
 const Contacts = () => {
   const {
+<<<<<<< HEAD
     register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
     handleSubmit, // метод для получения данных формы, если валидация прошла успешна
     formState: { errors, isValid }, // errors - список ошибок валидации для всех полей формы
@@ -136,6 +148,31 @@ const Contacts = () => {
     reset();
   };
   const [tasks, setTasks] = useState<IMyForm[]>([]);
+=======
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+  } = useForm<IMyForm>({ mode: 'onBlur' });
+
+  const [pdfData, setPdfData] = useState<IData>({} as IData);
+
+  const saveElement: SubmitHandler<IMyForm> = async (data) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPdfData({
+          name: data.name,
+          email: data.email,
+          text: data.text,
+          picture: reader.result as string ,
+        });
+        reset();
+      };
+      reader.readAsDataURL(data.picture[0]);
+  }   
+
+
+>>>>>>> c456f1e2 (added 1+2labs)
 
   return (
     <FonForm>
@@ -150,10 +187,14 @@ const Contacts = () => {
             id="name"
             {...register('name', {
               required: 'Поле обязательно для заполнения',
+<<<<<<< HEAD
               minLength: {
                 value: 2,
                 message: 'Нужно больше символов',
               },
+=======
+              minLength: { value: 2, message: 'Нужно больше символов' },
+>>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите ваше имя"
           />
@@ -166,26 +207,49 @@ const Contacts = () => {
             id="email"
             {...register('email', {
               required: 'Поле обязательно для заполнения',
+<<<<<<< HEAD
               minLength: {
                 value: 5,
                 message: 'Нужно больше символов',
               },
+=======
+              minLength: { value: 5, message: 'Нужно больше символов' },
+>>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите ваш email"
           />
           <div>{errors.email?.message}</div>
         </FormGroup>
         <FormGroup>
+<<<<<<< HEAD
+=======
+          <label htmlFor="picture">Прикрепить фотографию</label>
+          <input
+            type="file"
+            id="picture"
+            {...register('picture', {
+              required: 'Прикрепление фото обязательно'
+            })}
+            accept="image/png, image/jpeg" 
+          />
+          <div>{errors.picture?.message}</div>
+        </FormGroup>
+        <FormGroup>
+>>>>>>> c456f1e2 (added 1+2labs)
           <label htmlFor="text">Ваше сообщение</label>
           <input
             type="text"
             id="text"
             {...register('text', {
               required: 'Поле обязательно для заполнения',
+<<<<<<< HEAD
               minLength: {
                 value: 5,
                 message: 'Нужно больше символов',
               },
+=======
+              minLength: { value: 5, message: 'Нужно больше символов' },
+>>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите текст"
           />
@@ -195,6 +259,17 @@ const Contacts = () => {
           Отправить
         </SubmitButton>
       </ContactForm>
+<<<<<<< HEAD
+=======
+      {pdfData && (
+        <PDFDownloadLink
+        document={<MyDocument name={pdfData.name} email={pdfData.email} text={pdfData.text} picture={pdfData.picture} />}
+        fileName="contact-details.pdf"
+        >
+        {({ blob, url, loading, error }) => (loading ? 'Загрузка...' : 'Скачать PDF')}
+        </PDFDownloadLink> 
+        )}
+>>>>>>> c456f1e2 (added 1+2labs)
       <ContactInfo>
         <p>Адрес: Москва , ул. Ладожская , д5. М.Бауманская</p>
         <p>Магазин открыт ежедневно с 10:00 до 21:00</p>
@@ -205,4 +280,8 @@ const Contacts = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Contacts;
+=======
+export default Contacts;
+>>>>>>> c456f1e2 (added 1+2labs)

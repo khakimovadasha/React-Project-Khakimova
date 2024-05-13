@@ -17,4 +17,8 @@ const App = () => {
   ); 
 }; 
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> c456f1e2 (added 1+2labs)

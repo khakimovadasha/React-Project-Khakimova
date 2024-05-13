@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Table, Tag, Space, Image, Button } from 'antd';
 import plantData from '../../api/api.json';
@@ -117,13 +116,3 @@ export default Catalog;
 
 
 
-=======
-import React from 'react';
-import DinamicPagination from '../../components/DinamicPagination';
-
-
-const CatalogPage = () =>{
-return <DinamicPagination/>
-}
-export default CatalogPage
->>>>>>> c456f1e2 (added 1+2labs)
