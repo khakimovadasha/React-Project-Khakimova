@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "vite-plugin-pwa": "^0.19.8"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
+    "antd": "^5.16.5"
+  }
+}
