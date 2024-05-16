@@ -95,8 +95,6 @@
     "price": 2500,
     "inStock": false,
     "photo": "../monstera.png"
-<<<<<<< HEAD
-=======
   },
   {
     "key": "13",
@@ -262,6 +260,5 @@
     "price": 2500,
     "inStock": false,
     "photo": "../monstera.png"
->>>>>>> c456f1e2 (added 1+2labs)
   }
 ]

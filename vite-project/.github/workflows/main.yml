@@ -16,7 +16,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const textToAdd = 'Хакимова Дария 321-321';
+          const textToAdd = 'Хакимова Дария 221-321';
           const newDescription = textToAdd;
           github.pulls.update({
             owner: context.repo.owner,

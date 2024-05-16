@@ -20,7 +20,7 @@ const CardFlover: FC<IFloverCardProps> = ({flover}) => (
         objectFit: "cover",
       }}
       alt="flover"
-   />}
+  />}
   >
     <Meta title={flover.name} description={flover.price} />
   </Card>

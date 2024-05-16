@@ -1,23 +1,11 @@
-<<<<<<< HEAD
 import React from 'react';
 import styled from 'styled-components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useState } from 'react';
-
-interface IMyForm {
-  name: string;
-  age: number;
-}
-=======
-
-import styled from 'styled-components';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useState } from 'react';
-import MyDocument from '../../components/MyDocument';
+import { IMyForm } from './types';
+import { IData } from './types';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { IData , IMyForm} from './types';
-
->>>>>>> c456f1e2 (added 1+2labs)
+import MyDocument from '../../components/MyDocument';
 
 const FonForm = styled.div`
   background-image: url('../public/background.png');
@@ -132,26 +120,9 @@ const ContactInfo = styled.div`
 
 const Contacts = () => {
   const {
-<<<<<<< HEAD
-    register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
-    handleSubmit, // метод для получения данных формы, если валидация прошла успешна
-    formState: { errors, isValid }, // errors - список ошибок валидации для всех полей формы
-    reset, // метод для очистки полей формы
-  } = useForm<IMyForm>({
-    mode: 'onBlur', // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
-  });
-
-  const saveElement: SubmitHandler<IMyForm> = (data) => {
-    // здесь мы передаём новый массив, который содержит все старые элементы и новый
-    // ...prev - мы получаем все элементы текущего стэйте (с помощью spread оператора)
-    setTasks((prev) => [...prev, data]);
-    reset();
-  };
-  const [tasks, setTasks] = useState<IMyForm[]>([]);
-=======
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: {errors, isValid },
     reset,
   } = useForm<IMyForm>({ mode: 'onBlur' });
 
@@ -172,7 +143,6 @@ const Contacts = () => {
   }   
 
 
->>>>>>> c456f1e2 (added 1+2labs)
 
   return (
     <FonForm>
@@ -187,14 +157,10 @@ const Contacts = () => {
             id="name"
             {...register('name', {
               required: 'Поле обязательно для заполнения',
-<<<<<<< HEAD
               minLength: {
                 value: 2,
                 message: 'Нужно больше символов',
               },
-=======
-              minLength: { value: 2, message: 'Нужно больше символов' },
->>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите ваше имя"
           />
@@ -207,22 +173,16 @@ const Contacts = () => {
             id="email"
             {...register('email', {
               required: 'Поле обязательно для заполнения',
-<<<<<<< HEAD
               minLength: {
                 value: 5,
                 message: 'Нужно больше символов',
               },
-=======
-              minLength: { value: 5, message: 'Нужно больше символов' },
->>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите ваш email"
           />
           <div>{errors.email?.message}</div>
         </FormGroup>
         <FormGroup>
-<<<<<<< HEAD
-=======
           <label htmlFor="picture">Прикрепить фотографию</label>
           <input
             type="file"
@@ -235,21 +195,16 @@ const Contacts = () => {
           <div>{errors.picture?.message}</div>
         </FormGroup>
         <FormGroup>
->>>>>>> c456f1e2 (added 1+2labs)
           <label htmlFor="text">Ваше сообщение</label>
           <input
             type="text"
             id="text"
             {...register('text', {
               required: 'Поле обязательно для заполнения',
-<<<<<<< HEAD
               minLength: {
                 value: 5,
                 message: 'Нужно больше символов',
               },
-=======
-              minLength: { value: 5, message: 'Нужно больше символов' },
->>>>>>> c456f1e2 (added 1+2labs)
             })}
             placeholder="Введите текст"
           />
@@ -259,8 +214,6 @@ const Contacts = () => {
           Отправить
         </SubmitButton>
       </ContactForm>
-<<<<<<< HEAD
-=======
       {pdfData && (
         <PDFDownloadLink
         document={<MyDocument name={pdfData.name} email={pdfData.email} text={pdfData.text} picture={pdfData.picture} />}
@@ -269,7 +222,6 @@ const Contacts = () => {
         {({ blob, url, loading, error }) => (loading ? 'Загрузка...' : 'Скачать PDF')}
         </PDFDownloadLink> 
         )}
->>>>>>> c456f1e2 (added 1+2labs)
       <ContactInfo>
         <p>Адрес: Москва , ул. Ладожская , д5. М.Бауманская</p>
         <p>Магазин открыт ежедневно с 10:00 до 21:00</p>
@@ -280,8 +232,5 @@ const Contacts = () => {
   );
 };
 
-<<<<<<< HEAD
+
 export default Contacts;
-=======
-export default Contacts;
->>>>>>> c456f1e2 (added 1+2labs)

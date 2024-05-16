@@ -1,11 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> c456f1e2 (added 1+2labs)
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -15,8 +12,6 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
-<<<<<<< HEAD
-=======
   .container {
   max-width: calc(2560px + 1.875em);
   margin: 0 auto;
@@ -25,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
   padding-right: 0.9375em;
   }
 
->>>>>>> c456f1e2 (added 1+2labs)
   a {
   text-decoration: inherit;
   }

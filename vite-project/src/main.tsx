@@ -8,8 +8,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <App/>
   </BrowserRouter>,
-<<<<<<< HEAD
 )
-=======
-)
->>>>>>> c456f1e2 (added 1+2labs)
