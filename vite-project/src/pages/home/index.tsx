@@ -1,31 +1,31 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect } from "react";
 
-const Home = () => { 
-  useEffect(() => { 
-    const audio = new Audio('../public/.mp3'); 
+const Home = () => {
+  useEffect(() => {
+    const audio = new Audio("../public/.mp3");
 
-    const handleEnded = () => { 
-      audio.currentTime = 0; 
-      audio.play(); 
-    }; 
+    const handleEnded = () => {
+      audio.currentTime = 0;
+      audio.play();
+    };
 
-    audio.addEventListener('ended', handleEnded); 
+    audio.addEventListener("ended", handleEnded);
 
-    audio.play(); 
+    audio.play();
 
-    return () => { 
-      audio.removeEventListener('ended', handleEnded); 
-    }; 
-  }, []); 
+    return () => {
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, []);
 
-  return ( 
-    <> 
-      <h1 data-testid={"main-text"} >Главная</h1>
+  return (
+    <>
+      <h1 data-testid={"main-text"}>Главная</h1>
       {/* <div style={{ margin: '0 350px 100px'}}>
         <img src="../public/chipi-chipi-chapa-chapa.gif" height="800px" width="800px" alt="gif"/> 
       </div> */}
-    </> 
-  ); 
-}; 
+    </>
+  );
+};
 
 export default Home;

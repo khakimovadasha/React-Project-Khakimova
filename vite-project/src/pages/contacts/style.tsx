@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 const FonForm = styled.div`
-  background-image: url('../public/background.png');
+  background-image: url("../public/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
@@ -51,7 +50,7 @@ const FormGroup = styled.div`
   }
 
   input {
-    width:  400px;
+    width: 400px;
     padding: 10px 0px 10px 30px;
     border: none;
     border-radius: 30px;
@@ -83,7 +82,7 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color:  #95b57c;
+    background-color: #95b57c;
   }
 
   &:disabled {

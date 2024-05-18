@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const AboutContainer = styled.div`
   margin: 0 auto 70px;
   font-size: 16px;
@@ -20,7 +19,7 @@ export const AboutTextTwo = styled.p`
 `;
 
 export const WrapCont = styled.div`
-  padding: 50px; 
+  padding: 50px;
   display: flex;
   justify-content: space-between;
   background-color: var(--btn-color);
@@ -55,7 +54,7 @@ export const AboutAdvantagesHeader = styled.h2`
 
 export const AboutAdvantagesList = styled.ul`
   list-style: none;
-  padding:20px 200px;
+  padding: 20px 200px;
   display: flex;
   justify-content: space-between;
 `;
@@ -78,4 +77,3 @@ export const AboutContactHeader = styled.h2`
 export const AboutContactInfo = styled.p`
   margin-bottom: 10px;
 `;
-

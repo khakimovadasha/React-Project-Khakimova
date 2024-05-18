@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import { IStyledProps } from './index'; 
-
+import styled from "styled-components";
+import { IStyledProps } from "./index";
 
 const ReviewContainer = styled.div<IStyledProps>`
   margin: 20px 250px;
@@ -8,7 +7,7 @@ const ReviewContainer = styled.div<IStyledProps>`
   border: 1px solid #000000;
   background-color: #cddacd;
   border-radius: 30px;
-  height: ${({ containerHeight }) => (containerHeight ? containerHeight : 'auto')};
+  height: ${({ containerHeight }) => (containerHeight ? containerHeight : "auto")};
 `;
 
 const Rating = styled.div`
@@ -40,5 +39,4 @@ const ReviewDate = styled.p`
   margin: 0 15px;
 `;
 
-
-export { Rating, ReviewContainer, ReviewDate, ReviewText, AuthorInfo, AuthorName, AuthorPhoto};
+export { Rating, ReviewContainer, ReviewDate, ReviewText, AuthorInfo, AuthorName, AuthorPhoto };

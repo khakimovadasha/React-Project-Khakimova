@@ -1,6 +1,5 @@
-
 export interface IFlover {
   name: string;
-     price: number;
+  price: number;
   photo: string;
 }
