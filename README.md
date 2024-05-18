@@ -1,1 +1,1 @@
-![скриншот результата выполнения тестов](./public/screenshot-tests.jpg)
+![скриншот результата выполнения тестов](.vite-project/public/screenshot-tests.jpg)
