@@ -7,7 +7,7 @@ import plantData from '../../api/api.json';
 
 
 
-interface PlantType {
+interface IPlantType {
   key: string;
   name: string;
   category: string;
@@ -70,7 +70,7 @@ const columns = [
 
 function Catalog() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [displayedData, setDisplayedData] = useState<PlantType[]>([]);
+  const [displayedData, setDisplayedData] = useState<IPlantType[]>([]);
   const totalPages = Math.ceil(plantData.length / itemsPerPage);
 
 

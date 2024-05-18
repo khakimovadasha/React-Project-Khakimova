@@ -6,49 +6,8 @@ import {
   CONTACTS,
   REVIEWS,
 } from "../../app/routing/config";
-import styled from "styled-components";
+import { FooterWrap, WrapLinks, WrNv, WrapNav, WrapShop, InfoWrap} from "./style";
 
-export const FooterWrap = styled.div`
-  height: fit-content;
-  background-color: var(--btn-color);
-  color: var(--white-color);
-  padding:30px 50px 15px;
-`;
-
-export const InfoWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 7px 0px;
-  font-size: 10px;
-  text-decoration: underline;
-`;
-
-export const WrapLinks  = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-`;
-
-export const WrapShop = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const WrapNav  = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  text-decoration: underline;
-`;
-
-export const WrNv  = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 170px;
-  align-items: flex-end;
-  margin-bottom: 10px;
-`;
 
 const Footer: React.FC = () => {
 
@@ -78,10 +37,10 @@ const Footer: React.FC = () => {
         </WrNv>
         <WrapShop>
           <p style={{ fontSize: '30px', fontWeight: '500' }}>TukaPlants</p>
-          <p>Магазин  цветов для дома</p>
+          <p data-testid={"info-shop"}>Магазин  цветов для дома</p>
         </WrapShop>
         <div>
-        <a className="address-link" href="https://www.google.com/maps?q=Москва,+ул.+Ладожская,+д5" target="_blank" rel="noopener noreferrer">
+        <a  data-testid={"link-shop"} className="address-link" href="https://www.google.com/maps?q=Москва,+ул.+Ладожская,+д5" target="_blank" rel="noopener noreferrer">
           Адрес: Москва, ул.Ладожская, д5. М.Бауманская
         </a>
           <p style={{ display: 'flex', justifyContent: 'flex-end'}}>Магазин открыт ежедневно с 10:00 до 21:00</p>

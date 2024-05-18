@@ -67,13 +67,13 @@ const Navbar: React.FC = () => {
   return (
     <NavbarWrapper>
       <img src="../public/logo.svg" alt="logo" />
-      <Link to={HOME} className="routeLink">
+      <Link  data-testid={"main-link"} to={HOME} className="routeLink">
         Главная
       </Link>
       <Link to={CATALOG} className="routeLink">
         Каталог
       </Link>
-      <Link to={ABOUT} className="routeLink">
+      <Link data-testid={"aboutus-link"} to={ABOUT} className="routeLink">
         О нас
       </Link>
       {isAuthenticated && (
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
         </Link>
       )}
       <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
-        <button onClick={toggleLogin}> {loginButtonText} </button>
+        <button data-testid={"button-singin"} onClick={toggleLogin}> {loginButtonText} </button>
       </AuthContext.Provider>
       <ThemeButton theme={currentTheme} onClick={toggleTheme}>
         Сменить тему

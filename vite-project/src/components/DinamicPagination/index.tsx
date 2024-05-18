@@ -22,8 +22,6 @@ function DinamicPagination() {
   const [currentPage, setCurrentPage] = useState(1); 
   const [isLoading, setIsLoading ] = useState(false); 
   const [displayedData, setDisplayedData] = useState<IFlover[]>([]); 
-  console.log(isLoading)
-  console.log(displayedData.length)
 
   useEffect(() => { 
     setIsLoading(true) 
