@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useState } from 'react';
-
-interface IMyForm {
-  name: string;
-  age: number;
-}
+import { IMyForm } from './types';
+import { IData } from './types';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import MyDocument from '../../components/MyDocument';
 
 const FonForm = styled.div`
   background-image: url('../public/background.png');
@@ -121,21 +120,29 @@ const ContactInfo = styled.div`
 
 const Contacts = () => {
   const {
-    register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
-    handleSubmit, // метод для получения данных формы, если валидация прошла успешна
-    formState: { errors, isValid }, // errors - список ошибок валидации для всех полей формы
-    reset, // метод для очистки полей формы
-  } = useForm<IMyForm>({
-    mode: 'onBlur', // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
-  });
+    register,
+    handleSubmit,
+    formState: {errors, isValid },
+    reset,
+  } = useForm<IMyForm>({ mode: 'onBlur' });
 
-  const saveElement: SubmitHandler<IMyForm> = (data) => {
-    // здесь мы передаём новый массив, который содержит все старые элементы и новый
-    // ...prev - мы получаем все элементы текущего стэйте (с помощью spread оператора)
-    setTasks((prev) => [...prev, data]);
-    reset();
-  };
-  const [tasks, setTasks] = useState<IMyForm[]>([]);
+  const [pdfData, setPdfData] = useState<IData>({} as IData);
+
+  const saveElement: SubmitHandler<IMyForm> = async (data) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPdfData({
+          name: data.name,
+          email: data.email,
+          text: data.text,
+          picture: reader.result as string ,
+        });
+        reset();
+      };
+      reader.readAsDataURL(data.picture[0]);
+  }   
+
+
 
   return (
     <FonForm>
@@ -176,6 +183,18 @@ const Contacts = () => {
           <div>{errors.email?.message}</div>
         </FormGroup>
         <FormGroup>
+          <label htmlFor="picture">Прикрепить фотографию</label>
+          <input
+            type="file"
+            id="picture"
+            {...register('picture', {
+              required: 'Прикрепление фото обязательно'
+            })}
+            accept="image/png, image/jpeg" 
+          />
+          <div>{errors.picture?.message}</div>
+        </FormGroup>
+        <FormGroup>
           <label htmlFor="text">Ваше сообщение</label>
           <input
             type="text"
@@ -195,6 +214,14 @@ const Contacts = () => {
           Отправить
         </SubmitButton>
       </ContactForm>
+      {pdfData && (
+        <PDFDownloadLink
+        document={<MyDocument name={pdfData.name} email={pdfData.email} text={pdfData.text} picture={pdfData.picture} />}
+        fileName="contact-details.pdf"
+        >
+        {({ blob, url, loading, error }) => (loading ? 'Загрузка...' : 'Скачать PDF')}
+        </PDFDownloadLink> 
+        )}
       <ContactInfo>
         <p>Адрес: Москва , ул. Ладожская , д5. М.Бауманская</p>
         <p>Магазин открыт ежедневно с 10:00 до 21:00</p>
@@ -204,5 +231,6 @@ const Contacts = () => {
     </FonForm>
   );
 };
+
 
 export default Contacts;

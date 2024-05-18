@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
+
+
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -7,6 +10,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     max-width: 1920px;
 
+  }
+
+  .container {
+  max-width: calc(2560px + 1.875em);
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
   }
 
   a {
