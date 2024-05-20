@@ -41,3 +41,19 @@ export const WrNv = styled.div`
   align-items: flex-end;
   margin-bottom: 10px;
 `;
+
+export const NameShop = styled.div`
+  font-size: 30px;
+  font-weight: 500;
+`;
+
+export const ShopOpen = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const WrapImgIcon = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+`;

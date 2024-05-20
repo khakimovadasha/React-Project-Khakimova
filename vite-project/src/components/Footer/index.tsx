@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { HOME, CATALOG, ABOUT, CONTACTS, REVIEWS } from "../../app/routing/config";
-import { FooterWrap, WrapLinks, WrNv, WrapNav, WrapShop, InfoWrap } from "./style";
+import { FooterWrap, WrapLinks, WrNv, WrapNav, WrapShop, InfoWrap, NameShop, ShopOpen, WrapImgIcon  } from "./style";
 
 const Footer: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
           </WrapNav>
         </WrNv>
         <WrapShop>
-          <p style={{ fontSize: "30px", fontWeight: "500" }}>TukaPlants</p>
+          <NameShop>TukaPlants</NameShop>
           <p data-testid={"info-shop"}>Магазин цветов для дома</p>
         </WrapShop>
         <div>
@@ -41,8 +41,8 @@ const Footer: React.FC = () => {
           >
             Адрес: Москва, ул.Ладожская, д5. М.Бауманская
           </a>
-          <p style={{ display: "flex", justifyContent: "flex-end" }}>Магазин открыт ежедневно с 10:00 до 21:00</p>
-          <div style={{ display: "flex", justifyContent: "flex-end", margin: "10px 0" }}>
+          <ShopOpen>Магазин открыт ежедневно с 10:00 до 21:00</ShopOpen>
+          <WrapImgIcon>
             <a href="tel:+79653389035">
               <img src="../public/tel.svg" alt="logo tel" />
             </a>
@@ -53,9 +53,9 @@ const Footer: React.FC = () => {
               <img style={{ marginLeft: "14px" }} src="../public/vk.svg" alt="logo vk"></img>
             </a>
             <a href="mailto:tuka-plants@gmail.com">
-              <img style={{ marginLeft: "14px" }} src="../public/mail.svg" alt="logo mail" />
+              <img style={{ marginLeft: "14px" }} src="../public/mail.svg" alt="logo mail"/>
             </a>
-          </div>
+          </WrapImgIcon>
         </div>
       </WrapLinks>
       <hr></hr>

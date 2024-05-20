@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table, Tag, Space, Image, Button } from "antd";
 import plantData from "../../api/api.json";
-
-interface IPlantType {
-  key: string;
-  name: string;
-  category: string;
-  price: number;
-  inStock: boolean;
-  photo: string;
-}
+import { IPlantType } from "./types";
 
 const itemsPerPage = 8;
 

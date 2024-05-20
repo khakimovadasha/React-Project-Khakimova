@@ -82,8 +82,7 @@ const Navbar: React.FC = () => {
       )}
       <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
         <button data-testid={"button-singin"} onClick={toggleLogin}>
-          {" "}
-          {loginButtonText}{" "}
+          {loginButtonText}
         </button>
       </AuthContext.Provider>
       <ThemeButton theme={currentTheme} onClick={toggleTheme}>
