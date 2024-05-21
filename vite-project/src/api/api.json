@@ -1,4 +1,3 @@
-
 [
   {
     "key": "1",
@@ -191,7 +190,8 @@
     "price": 2500,
     "inStock": false,
     "photo": "../monstera.png"
-  },{
+  },
+  {
     "key": "19",
     "name": "Фикус",
     "category": "Комнатные",
@@ -214,7 +214,8 @@
     "price": 2500,
     "inStock": false,
     "photo": "../monstera.png"
-  },{
+  },
+  {
     "key": "19",
     "name": "Фикус",
     "category": "Комнатные",
@@ -237,7 +238,8 @@
     "price": 2500,
     "inStock": false,
     "photo": "../monstera.png"
-  },{
+  },
+  {
     "key": "19",
     "name": "Фикус",
     "category": "Комнатные",

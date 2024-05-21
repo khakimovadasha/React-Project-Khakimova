@@ -1,4 +1,3 @@
-
 export interface IFlover {
   name: string;
   price: number;

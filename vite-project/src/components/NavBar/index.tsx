@@ -1,12 +1,6 @@
 import React, { useState, createContext } from "react";
 import { Link } from "react-router-dom";
-import {
-  HOME,
-  CATALOG,
-  ABOUT,
-  CONTACTS,
-  REVIEWS,
-} from "../../app/routing/config";
+import { HOME, CATALOG, ABOUT, CONTACTS, REVIEWS } from "../../app/routing/config";
 import styled from "styled-components";
 
 interface AuthContextType {
@@ -34,18 +28,18 @@ const NavbarWrapper = styled.div`
 `;
 
 const ThemeButton = styled.button`
-  background-color: ${props =>
-    props.theme === "dark" ? "#000000" : "#ffffff"};
-  color: ${props => (props.theme === "dark" ? "#ffffff" : "#000000")};
+  background-color: ${(props) => (props.theme === "dark" ? "#000000" : "#ffffff")};
+  color: ${(props) => (props.theme === "dark" ? "#ffffff" : "#000000")};
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
   &:hover {
-    background-color: ${props =>
-      props.theme === "dark" ? "#111111" : "#f0f0f0"};
+    background-color: ${(props) => (props.theme === "dark" ? "#111111" : "#f0f0f0")};
   }
 `;
 
@@ -55,7 +49,7 @@ const Navbar: React.FC = () => {
 
   const loginButtonText = isAuthenticated ? "Выйти" : "Войти";
   const toggleLogin = () => {
-    setIsAuthenticated(prevState => !prevState);
+    setIsAuthenticated((prevState) => !prevState);
   };
 
   const toggleTheme = () => {
@@ -67,13 +61,13 @@ const Navbar: React.FC = () => {
   return (
     <NavbarWrapper>
       <img src="../public/logo.svg" alt="logo" />
-      <Link to={HOME} className="routeLink">
+      <Link data-testid={"main-link"} to={HOME} className="routeLink">
         Главная
       </Link>
       <Link to={CATALOG} className="routeLink">
         Каталог
       </Link>
-      <Link to={ABOUT} className="routeLink">
+      <Link data-testid={"aboutus-link"} to={ABOUT} className="routeLink">
         О нас
       </Link>
       {isAuthenticated && (
@@ -87,7 +81,9 @@ const Navbar: React.FC = () => {
         </Link>
       )}
       <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
-        <button onClick={toggleLogin}> {loginButtonText} </button>
+        <button data-testid={"button-singin"} onClick={toggleLogin}>
+          {loginButtonText}
+        </button>
       </AuthContext.Provider>
       <ThemeButton theme={currentTheme} onClick={toggleTheme}>
         Сменить тему

@@ -5,11 +5,9 @@ export interface IData {
   picture: string;
 }
 
-
 export interface IMyForm {
   name: string;
   email: string;
   text: string;
-  picture: FileList; 
+  picture: FileList;
 }
-
